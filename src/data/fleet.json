@@ -1,0 +1,58 @@
+[
+  {
+    "id": "rolls-royce-phantom",
+    "name": "Rolls-Royce Phantom",
+    "description": "Unmatched prestige and craftsmanship for the world's most discerning passengers.",
+    "features": [
+      "Handcrafted interiors",
+      "Privacy suite",
+      "Bespoke detailing",
+      "Ultra-comfort"
+    ],
+    "category": "Ultra Luxury",
+    "passengers": 4,
+    "image": "/fleet/rollsroyce.jpg"
+  },
+  {
+    "id": "cadillac-escalade",
+    "name": "Cadillac Escalade",
+    "description": "Bold, spacious SUV built for groups that require both comfort and presence.",
+    "features": [
+      "Spacious 7-seat interior",
+      "Premium sound system",
+      "Panoramic sunroof",
+      "Advanced safety features"
+    ],
+    "category": "Luxury SUV",
+    "passengers": 7,
+    "image": "/fleet/escalade.jpg"
+  },
+  {
+    "id": "mercedes-s-class",
+    "name": "Mercedes S-Class",
+    "description": "The executive sedan of choice for comfort, technology, and whisper-quiet performance.",
+    "features": [
+      "Premium leather seating",
+      "Advanced climate control",
+      "Executive rear seating",
+      "State-of-the-art infotainment"
+    ],
+    "category": "Executive Sedan",
+    "passengers": 4,
+    "image": "/fleet/mercedes.jpg"
+  },
+  {
+    "id": "tesla-model-x",
+    "name": "Tesla Model X",
+    "description": "Eco-luxury SUV with falcon-wing doors and cutting-edge technology.",
+    "features": [
+      "Electric performance",
+      "Falcon Wing doors",
+      "Premium autopilot",
+      "Zero emissions"
+    ],
+    "category": "Eco Luxury",
+    "passengers": 5,
+    "image": "/fleet/tesla.jpg"
+  }
+]

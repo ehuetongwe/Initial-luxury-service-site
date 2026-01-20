@@ -1,0 +1,56 @@
+[
+  {
+    "id": "sarah-l",
+    "name": "Sarah L.",
+    "role": "Corporate Executive",
+    "company": "Goldman Sachs",
+    "review": "Elite Rides has transformed my daily commute. Their punctuality is unmatched, and the professionalism of their chauffeurs is exceptional. I can conduct business calls in complete privacy and comfort.",
+    "rating": 5,
+    "service": "Executive Transfers"
+  },
+  {
+    "id": "michael-r",
+    "name": "Michael R.",
+    "role": "CEO",
+    "company": "Tech Innovations Inc.",
+    "review": "For our company's IPO celebration, Elite Rides provided flawless service. The attention to detail and luxury fleet made our special evening unforgettable. Highly recommended for corporate events.",
+    "rating": 5,
+    "service": "Event Chauffeur"
+  },
+  {
+    "id": "alexandra-m",
+    "name": "Alexandra M.",
+    "role": "Investment Banker",
+    "company": "Morgan Stanley",
+    "review": "The Tesla Model X service is incredible. Silent, smooth, and environmentally conscious without compromising on luxury. Perfect for client meetings and airport transfers.",
+    "rating": 5,
+    "service": "On-Demand Luxury"
+  },
+  {
+    "id": "james-w",
+    "name": "James W.",
+    "role": "Venture Capitalist",
+    "company": "Summit Ventures",
+    "review": "Elite Rides' VIP city tours exceeded all expectations. Our international clients were thoroughly impressed with the local expertise and premium service. A true competitive advantage for our firm.",
+    "rating": 5,
+    "service": "VIP City Tours"
+  },
+  {
+    "id": "patricia-k",
+    "name": "Patricia K.",
+    "role": "Managing Director",
+    "company": "BlackRock",
+    "review": "Reliability and discretion are paramount in my line of work. Elite Rides delivers both consistently. Their chauffeurs are professional, well-dressed, and understand the importance of confidentiality.",
+    "rating": 5,
+    "service": "Executive Transfers"
+  },
+  {
+    "id": "david-c",
+    "name": "David C.",
+    "role": "Entertainment Executive",
+    "company": "Universal Studios",
+    "review": "For high-profile events and premieres, Elite Rides is our go-to service. The Rolls Royce Phantom makes the perfect statement, and their red-carpet service is impeccable.",
+    "rating": 5,
+    "service": "Event Chauffeur"
+  }
+]

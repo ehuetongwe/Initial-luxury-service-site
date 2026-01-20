@@ -1,0 +1,12 @@
+/* Typography styles */
+.luxury-heading {
+  @apply font-bold text-gray-900 tracking-tight;
+}
+
+.luxury-text {
+  @apply text-gray-600 leading-relaxed;
+}
+
+.luxury-caption {
+  @apply text-sm text-gray-500 uppercase tracking-wider;
+}

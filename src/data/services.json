@@ -1,0 +1,34 @@
+[
+  {
+    "id": "executive-transfers",
+    "title": "Executive Transfers",
+    "description": "Professional airport transfers and business transportation for executives. Punctual, discreet, and comfortable rides in premium vehicles with experienced chauffeurs.",
+    "features": ["Premium vehicles", "Professional chauffeurs", "Real-time tracking", "24/7 availability"],
+    "price": "From $150",
+    "duration": "Per trip"
+  },
+  {
+    "id": "event-chauffeur",
+    "title": "Event Chauffeur",
+    "description": "Elegant transportation for special occasions, weddings, galas, and corporate events. Make a grand entrance with our luxury fleet and white-glove service.",
+    "features": ["Red carpet service", "Event coordination", "Multiple vehicle options", "Custom packages"],
+    "price": "From $300",
+    "duration": "Per event"
+  },
+  {
+    "id": "vip-city-tours",
+    "title": "VIP City Tours",
+    "description": "Curated city experiences with personal chauffeurs and local expertise. Discover the finest restaurants, attractions, and hidden gems in ultimate comfort.",
+    "features": ["Local expertise", "Customized itineraries", "Premium refreshments", "Photography service"],
+    "price": "From $400",
+    "duration": "Half/Full day"
+  },
+  {
+    "id": "on-demand-luxury",
+    "title": "On-Demand Luxury",
+    "description": "Premium ride-share service available on-demand through our app. Whether for business meetings, shopping, or leisure, travel in style whenever you need.",
+    "features": ["Instant booking", "App-based service", "Flexible scheduling", "Luxury vehicle selection"],
+    "price": "From $80",
+    "duration": "Per ride"
+  }
+]
