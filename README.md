@@ -95,4 +95,4 @@ This project is intended for business use. Please ensure proper licensing for co
 3. Make your changes
 4. Submit a pull request
 
-For detailed development guidelines, see [SETUP.md](./SETUP.md).
+For detailed development guidelines, see [SETUP.md](./SETUP.md).# Initial-luxury-service-site
