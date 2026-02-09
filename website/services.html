@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | Aura Luxury Transport</title>
+    <meta name="description"
+        content="View our competitive pricing for chauffeur services, airport transfers, and private jet charters.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURA</a>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contact" class="btn btn-primary open-modal">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero"
+            style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1500&q=80');">
+            <div class="container">
+                <h1>Exceptional Journeys</h1>
+                <p>Transparent pricing for unparalleled service.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding: var(--spacing-xl) 0;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2>Our Rates</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">Whether you require a
+                    vehicle for a few hours or a dedicated team for a week, our pricing is designed to provide value
+                    without compromising on excellence.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Hourly Service -->
+                <div class="price-card">
+                    <h3>Hourly Chauffeur</h3>
+                    <div class="price">$150 <span class="unit">/ hr</span></div>
+                    <ul class="price-features">
+                        <li>Minimum 4 hours</li>
+                        <li>Mercedes Benz S-Class or similar</li>
+                        <li>In-car Wi-Fi & refreshments</li>
+                        <li>Professionally vested chauffeur</li>
+                    </ul>
+                    <a href="#contact" class="btn open-modal">Reserve Now</a>
+                </div>
+
+                <!-- Airport Transfer (Featured) -->
+                <div class="price-card featured">
+                    <div
+                        style="background-color: var(--color-accent-gold); color: #000; padding: 5px; font-size: 0.8rem; text-transform: uppercase; font-weight: bold; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 150px; border-radius: 4px;">
+                        Most Popular</div>
+                    <h3>Airport Transfer</h3>
+                    <div class="price">$250 <span class="unit">/ trip</span></div>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: -10px;">Starting rate (e.g. JFK to Manhattan)
+                    </p>
+                    <ul class="price-features">
+                        <li>Real-time flight tracking</li>
+                        <li>60-min complimentary wait time</li>
+                        <li>Meet & Greet service</li>
+                        <li>Luggage assistance</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary open-modal">Book Transfer</a>
+                </div>
+
+                <!-- Corporate Day Rate -->
+                <div class="price-card">
+                    <h3>Corporate Day</h3>
+                    <div class="price">$1,200 <span class="unit">/ day</span></div>
+                    <ul class="price-features">
+                        <li>Up to 10 hours service</li>
+                        <li>Multiple stops included</li>
+                        <li>Priority dispatching</li>
+                        <li>Detailed billing & reporting</li>
+                    </ul>
+                    <a href="#contact" class="btn open-modal">Inquire</a>
+                </div>
+            </div>
+        </section>
+
+        <section
+            style="background-color: #0f0f0f; padding: var(--spacing-xl) 0; text-align: center; margin-top: var(--spacing-xl);">
+            <div class="container">
+                <h2>Private Aviation</h2>
+                <p style="color: var(--color-text-secondary); max-width: 700px; margin: 0 auto var(--spacing-lg);">
+                    Access our global network of private aircraft. From light jets for regional hops to heavy jets for
+                    transcontinental flights, we curate the perfect aircraft for your mission.
+                </p>
+                <a href="#contact" class="btn btn-primary open-modal">Request a Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background-color: var(--color-bg-secondary); padding: var(--spacing-xl) 0; border-top: 1px solid var(--color-border);">
+        <div class="container" style="text-align: center; color: var(--color-text-secondary);">
+            <p>&copy; 2026 Aura Luxury Transport. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal (duplicated for functionality) -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Request a Reservation</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required placeholder="Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service">
+                        <option value="chauffeur">Chauffeur Service</option>
+                        <option value="airport">Airport Transfer</option>
+                        <option value="corporate">Corporate Travel</option>
+                        <option value="jet">Private Jet Charter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Requirements</label>
+                    <textarea id="message" name="message" rows="4"
+                        placeholder="Flight details, special requests, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

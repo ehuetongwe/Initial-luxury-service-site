@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Luxury Transportation</title>
+    <meta name="description"
+        content="Experience the pinnacle of luxury travel. Premium chauffeur services, private jets, and exclusive transport.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURA</a>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contact" class="btn btn-primary open-modal">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Redefining excellence in motion.</h1>
+                <p>Seamless, secure, and sophisticated travel solutions for the discerning few.</p>
+                <a href="#contact" class="btn btn-primary">Reserve Your Journey</a>
+            </div>
+        </section>
+
+        <section id="services" class="container"
+            style="padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
+            <h2 style="text-align: center;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Chauffeur Service</h3>
+                    <p style="color: var(--color-text-secondary);">Professional chauffeurs dedicated to your comfort and
+                        safety.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Airport Transfers</h3>
+                    <p style="color: var(--color-text-secondary);">Seamless connections to private and commercial
+                        terminals.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate Travel</h3>
+                    <p style="color: var(--color-text-secondary);">Efficient logistic solutions for business executives.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Special Events</h3>
+                    <p style="color: var(--color-text-secondary);">Elegant transportation for weddings, galas, and VIP
+                        occasions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fleet" class="container" style="padding-bottom: var(--spacing-xl);">
+            <h2 style="text-align: center;">Our Available Options</h2>
+            <div class="fleet-grid">
+                <!-- Mercedes S-Class -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="images/mercedes-s-class.png" alt="Mercedes S-Class">
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Mercedes-Benz S-Class</h3>
+                        <div class="specs-list">
+                            <div class="spec-item"><span class="spec-icon">👤</span> 3 Passengers</div>
+                            <div class="spec-item"><span class="spec-icon">🧳</span> 2 Bags</div>
+                        </div>
+                        <a href="#contact" class="btn open-modal" style="width: 100%; text-align: center;">Book
+                            Sedan</a>
+                    </div>
+                </div>
+                <!-- Cadillac Escalade -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="images/cadillac-escalade.png" alt="Cadillac Escalade">
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Cadillac Escalade ESV</h3>
+                        <div class="specs-list">
+                            <div class="spec-item"><span class="spec-icon">👤</span> 6 Passengers</div>
+                            <div class="spec-item"><span class="spec-icon">🧳</span> 6 Bags</div>
+                        </div>
+                        <a href="#contact" class="btn open-modal" style="width: 100%; text-align: center;">Book SUV</a>
+                    </div>
+                </div>
+                <!-- Heavy Jet -->
+                <div class="vehicle-card">
+                    <div class="vehicle-image">
+                        <img src="images/heavy-jet.png" alt="Gulfstream Interior">
+                    </div>
+                    <div class="vehicle-details">
+                        <h3>Heavy Jets</h3>
+                        <div class="specs-list">
+                            <div class="spec-item"><span class="spec-icon">✈️</span> G650 / Global 6000</div>
+                            <div class="spec-item"><span class="spec-icon">👤</span> 12-16 Pax</div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary open-modal"
+                            style="width: 100%; text-align: center;">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-fleet">
+                <a href="fleet.html" class="btn">View Full Fleet</a>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background-color: var(--color-bg-secondary); padding: var(--spacing-xl) 0; margin-top: var(--spacing-xl); border-top: 1px solid var(--color-border);">
+        <div class="container" style="text-align: center; color: var(--color-text-secondary);">
+            <p>&copy; 2026 Aura Luxury Transport. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Request a Reservation</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required placeholder="Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service">
+                        <option value="chauffeur">Chauffeur Service</option>
+                        <option value="airport">Airport Transfer</option>
+                        <option value="corporate">Corporate Travel</option>
+                        <option value="jet">Private Jet Charter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Requirements</label>
+                    <textarea id="message" name="message" rows="4"
+                        placeholder="Flight details, special requests, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase & EmailJS SDKs -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/booking-final.js"></script>
+</body>
+
+</html>

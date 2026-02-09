@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - Aura Luxury Transport</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURA</a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+        <div class="container">
+            <div id="verification-status" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <h2>Email Verification</h2>
+                <div id="status-message" style="margin: var(--spacing-xl) 0;">
+                    <p>Verifying your email address...</p>
+                </div>
+                <a href="index.html" class="btn">Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; color: var(--color-text-secondary);">
+            <p>&copy; 2026 Aura Luxury Transport. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusMessage = document.getElementById('status-message');
+            statusMessage.innerHTML = `
+                <div style="color: var(--color-text-secondary);">
+                    <p>Email verification is not currently required.</p>
+                    <p>If you have any questions, please contact us directly.</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>

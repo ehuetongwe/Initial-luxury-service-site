@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Aura | Our Story & Services</title>
+    <meta name="description"
+        content="Learn about Aura's commitment to luxury, privacy, and precision in transportation.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">AURA</a>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="fleet.html">Fleet</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="#contact" class="btn btn-primary open-modal">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero"
+            style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1500&q=80'); background-position: center;">
+            <div class="container">
+                <h1>The Aura Standard</h1>
+                <p>Beyond transportation. A promise of excellence.</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <h2>The Aura Philosophy</h2>
+                <p>True luxury is the absence of worry. At Aura, we don't just move people; we orchestrate moments of
+                    perfect stillness in a chaotic world. We believe that every journey should be as refined as the
+                    destination itself.</p>
+                <p>Born from a desire to elevate the standard of ground transportation, Aura serves those who demand
+                    more. Our clients aren't just passengers; they are visionaries, leaders, and tastemakers who
+                    understand that time is their most valuable asset.</p>
+                <p>We combine state-of-the-art logistics with good old-fashioned hospitality. Our chauffeurs are masters
+                    of discretion, our fleet is the definition of pristine, and our promise is simple: excellence, every
+                    single time.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: var(--spacing-xl);">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Curated Services</h2>
+
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Chauffeur & Concierge</h3>
+                    <p>Our flagship black car service offers the pinnacle of ground transportation. Whether it is a
+                        daily commute or a red-carpet arrival, our chauffeurs anticipate your needs before you speak
+                        them.</p>
+                    <p>Features: WiFi-enabled vehicles, complimentary refreshments, and absolute confidentiality.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80"
+                        alt="Chauffeur opening car door">
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Airport Transfers</h3>
+                    <p>We monitor your flight in real-time to ensure we are there exactly when you land, regardless of
+                        delays. Our "Tarmac-to-Door" service streamlines your arrival and departure, removing all
+                        friction from travel.</p>
+                    <p>Available at all major private FBOs and commercial terminals.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80"
+                        alt="Private Jet on tarmac">
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <div class="service-content">
+                    <h3>Corporate Logistics</h3>
+                    <p>For roadshows, board meetings, and corporate events, precision is non-negotiable. We coordinate
+                        complex itineraries for teams and executives, ensuring your schedule runs like a Swiss watch.
+                    </p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                        alt="Corporate skyscrapers">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background-color: var(--color-bg-secondary); padding: var(--spacing-xl) 0; border-top: 1px solid var(--color-border);">
+        <div class="container" style="text-align: center; color: var(--color-text-secondary);">
+            <p>&copy; 2026 Aura Luxury Transport. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal (duplicated structure for functionality across pages) -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Request a Reservation</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required placeholder="Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <select id="service" name="service">
+                        <option value="chauffeur">Chauffeur Service</option>
+                        <option value="airport">Airport Transfer</option>
+                        <option value="corporate">Corporate Travel</option>
+                        <option value="jet">Private Jet Charter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Requirements</label>
+                    <textarea id="message" name="message" rows="4"
+                        placeholder="Flight details, special requests, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
