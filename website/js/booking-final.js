@@ -129,7 +129,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // 7. Booking Logic (Refactored)
+    // Helper: Send reservation data to n8n webhook (non-blocking)
+    function sendToN8nWebhook(payload) {
+        const webhookUrl = AppConfig.N8N_WEBHOOK_URL;
+        if (!webhookUrl || webhookUrl === 'YOUR_N8N_WEBHOOK_URL') {
+            return;
+        }
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(err => {
+            console.warn('n8n webhook failed (lead already saved):', err);
+        });
+    }
+
+    // 7. Reservation Request Pipeline
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -140,52 +155,98 @@ document.addEventListener('DOMContentLoaded', async () => {
             btn.disabled = true;
 
             const formData = {
-                first_name: form.first_name.value,
-                last_name: form.last_name.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                service: form.service.value,
-                message: form.message.value
+                first_name: form.first_name.value.trim(),
+                last_name: form.last_name.value.trim(),
+                email: form.email.value.trim(),
+                phone_number: form.phone.value.trim(),
+                service_type: form.service.value,
+                additional_requirements: form.message.value.trim()
             };
 
+            // Validation: required fields
+            if (!formData.first_name || !formData.last_name || !formData.email || !formData.service_type) {
+                alert('Please fill in your first name, last name, email, and service type.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                return;
+            }
+
+            if (!supabase) {
+                alert('Booking service is unavailable. Please call us directly.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                return;
+            }
+
             try {
-                // Supabase flow
-                if (supabase) {
-                    const { error } = await supabase
-                        .from('customers')
-                        .upsert({
-                            first_name: formData.first_name,
-                            last_name: formData.last_name,
-                            email: formData.email,
-                            phone_number: formData.phone
-                        }, { onConflict: 'email' });
+                // Step 1: Upsert customer by email, get back the id
+                const { data: customerRows, error: upsertError } = await supabase
+                    .from('customers')
+                    .upsert({
+                        first_name: formData.first_name,
+                        last_name: formData.last_name,
+                        email: formData.email,
+                        phone_number: formData.phone_number || null
+                    }, { onConflict: 'email' })
+                    .select('id')
+                    .single();
 
-                    if (error) throw error;
-                }
+                if (upsertError) throw upsertError;
+                const customerId = customerRows.id;
 
-                // EmailJS flow
+                // Step 2: Insert reservation_request linked to customer
+                const { data: reservation, error: insertError } = await supabase
+                    .from('reservation_requests')
+                    .insert({
+                        customer_id: customerId,
+                        first_name: formData.first_name,
+                        last_name: formData.last_name,
+                        email: formData.email,
+                        phone_number: formData.phone_number || null,
+                        service_type: formData.service_type,
+                        additional_requirements: formData.additional_requirements || null,
+                        status: 'new',
+                        source: 'luxury-site'
+                    })
+                    .select('id')
+                    .single();
+
+                if (insertError) throw insertError;
+
+                // Step 3: Fire n8n webhook (non-blocking)
+                sendToN8nWebhook({
+                    first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    email: formData.email,
+                    phone_number: formData.phone_number,
+                    service_type: formData.service_type,
+                    additional_requirements: formData.additional_requirements,
+                    source: 'luxury-site'
+                });
+
+                // Step 4: EmailJS notification (optional, non-blocking)
                 if (servicesReady) {
-                    await emailjs.send(
+                    emailjs.send(
                         AppConfig.EMAILJS_SERVICE_ID,
                         AppConfig.EMAILJS_TEMPLATE_ID,
                         {
                             to_name: formData.first_name + ' ' + formData.last_name,
                             to_email: formData.email,
-                            service_type: formData.service,
-                            message: formData.message
+                            service_type: formData.service_type,
+                            message: formData.additional_requirements
                         }
-                    );
-                } else if (!supabase) {
-                    await new Promise(r => setTimeout(r, 1000));
+                    ).catch(emailErr => {
+                        console.warn('EmailJS notification failed (lead already saved):', emailErr);
+                    });
                 }
 
-                // Success
+                // Step 5: Show success — lead is saved regardless of webhook/email outcome
                 showSuccessMessage(formData);
                 form.reset();
 
             } catch (error) {
-                console.error('Booking error:', error);
-                alert('We encountered an error processing your request. Please try giving us a call.');
+                console.error('Reservation request error:', error);
+                alert('We encountered an error saving your request. Please try calling us directly.');
             } finally {
                 btn.innerText = originalText;
                 btn.disabled = false;
