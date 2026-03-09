@@ -172,6 +172,11 @@
                     <textarea id="message" name="message" rows="4"
                         placeholder="Flight details, special requests, etc."></textarea>
                 </div>
+                <!-- Honeypot: hidden from real users, catches bots -->
+                <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                    <label for="_hp_company">Company</label>
+                    <input type="text" id="_hp_company" name="_hp_company" tabindex="-1" autocomplete="off">
+                </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
             </form>
         </div>

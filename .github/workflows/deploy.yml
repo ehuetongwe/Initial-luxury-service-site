@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy to Netlify
 
 on:
   push:
@@ -7,37 +7,44 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  validate:
+    name: HTML Validation
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install html5validator
+        run: pip install html5validator
 
-      - name: Run tests
-        run: npm test
+      - name: Validate HTML files
+        run: html5validator --root website/ --also-check-css --log INFO
 
-      - name: Build application
-        run: npm run build
+  linkcheck:
+    name: Link Checking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install htmltest
+        run: |
+          curl -fsSL https://github.com/wjdp/htmltest/releases/download/v0.17.0/htmltest_0.17.0_linux_amd64.tar.gz \
+            | tar xz -C /usr/local/bin htmltest
+
+      - name: Run link checker
+        run: htmltest
 
   deploy:
-    needs: test
+    name: Deploy to Netlify
+    needs: [validate, linkcheck]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
-          vercel-args: '--prod'
+          args: deploy --dir=website --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

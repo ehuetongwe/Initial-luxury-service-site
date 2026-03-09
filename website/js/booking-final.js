@@ -129,18 +129,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Helper: Send reservation data to n8n webhook (non-blocking)
-    function sendToN8nWebhook(payload) {
-        const webhookUrl = AppConfig.N8N_WEBHOOK_URL;
-        if (!webhookUrl || webhookUrl === 'YOUR_N8N_WEBHOOK_URL') {
-            return;
-        }
-        fetch(webhookUrl, {
+    // Helper: Send reservation data via Netlify Function relay (non-blocking)
+    function sendReservationNotification(payload) {
+        fetch('/.netlify/functions/reservation', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         }).catch(err => {
-            console.warn('n8n webhook failed (lead already saved):', err);
+            console.warn('Reservation notification failed (lead already saved):', err);
         });
     }
 
@@ -213,14 +209,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (insertError) throw insertError;
 
-                // Step 3: Fire n8n webhook (non-blocking)
-                sendToN8nWebhook({
+                // Step 3: Send notification via Netlify Function relay (non-blocking)
+                sendReservationNotification({
                     first_name: formData.first_name,
                     last_name: formData.last_name,
                     email: formData.email,
                     phone_number: formData.phone_number,
                     service_type: formData.service_type,
                     additional_requirements: formData.additional_requirements,
+                    _hp_company: form._hp_company ? form._hp_company.value : '',
                     source: 'luxury-site'
                 });
 
